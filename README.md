@@ -1,3 +1,25 @@
+## Instructions to Run
+
+Clone the Repo from git: 
+
+```git clone https://github.com/sridhargude/levitate.git```
+
+Build the Binary:
+
+```go build```
+
+Once the binary is built succesfully, run the binary: 
+
+``` ./web-service-gin ```
+
+It runs on port localhost:8081
+![img.png](img.png)
+
+
+Access the ip:port to check if the services is running and POST Metrics:
+![img_1.png](img_1.png)
+
+Cardinality is printed every 5 seconds
 
 ## Framework:
 
@@ -38,10 +60,16 @@ Gin - HTTP Webservice
       
       I choose HLL since we are interested here in Cardinality and Space Efficiency over support for features like 
       extra operations and frequency estimation that Count-Min Sketch provides.
-   3. Test 
+
+   3. Buffered Channel vs Unbuffered Channel
+      Since the size of the buffer depends on various factors like the size of the requests coming in and processing 
+      rate (i.e., consumption) and calculating the cardinality of each record, also it depends on system resources 
+      available, I choose unbuffered. But the ideal way is to use some kind of MQ in between and consume them.
 
 
+### BenchMark
 
+![img_2.png](img_2.png)
 
 
 
