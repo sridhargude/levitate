@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-# levitate
-=======
-
-
-
 
 ## Framework:
 
@@ -57,5 +51,3 @@ Gin - HTTP Webservice
 
 
 
-
->>>>>>> 20b1204 (First commit)
