@@ -1,9 +1,9 @@
 package main
 
 import (
-	"example/web-service-gin/handlers"
-	"example/web-service-gin/hll"
-	"example/web-service-gin/metrics"
+	"github.com/sridhargude/levitate/handlers"
+	"github.com/sridhargude/levitate/hll"
+	"github.com/sridhargude/levitate/metrics"
 	"github.com/gin-gonic/gin"
 )
 

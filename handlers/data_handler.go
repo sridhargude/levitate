@@ -2,8 +2,8 @@ package handlers
 
 import (
 	"encoding/json"
-	"example/web-service-gin/hll"
-	"example/web-service-gin/metrics"
+	"github.com/sridhargude/levitate/hll"
+	"github.com/sridhargude/levitate/metrics"
 	"fmt"
 	"sync"
 	"time"

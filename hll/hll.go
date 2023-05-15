@@ -2,7 +2,7 @@ package hll
 
 import (
 	"encoding/json"
-	"example/web-service-gin/metrics"
+	"github.com/sridhargude/levitate/metrics"
 	h "github.com/mtchavez/go-hll/hll"
 )
 
