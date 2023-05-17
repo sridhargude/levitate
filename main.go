@@ -25,12 +25,18 @@ func handleMetrics(c *gin.Context) {
 		var jsonData map[string]interface{}
 		if err := c.BindJSON(&jsonData); err != nil {
 			c.AbortWithError(400, err)
+			c.JSON(400, gin.H{
+				"message": "Unable to decode JSON Data Stream",
+			})
 			return
 		}
 
 		// Process the JSON data
 		if err := handlers.ProcessJSONData(jsonData); err != nil {
 			c.AbortWithError(500, err)
+			c.JSON(500, gin.H{
+				"message": "Unable to process JSONMetrics data format provided",
+			})
 			return
 		}
 
@@ -46,12 +52,18 @@ func handleMetrics(c *gin.Context) {
 		rawData, err := c.GetRawData()
 		if err != nil {
 			c.AbortWithError(400, err)
+			c.JSON(400, gin.H{
+				"message": "Unable to decode Raw Data Stream",
+			})
 			return
 		}
 
 		// Process the OpenMetrics data
 		if err := handlers.ProcessOpenMetricsData(string(rawData)); err != nil {
 			c.AbortWithError(500, err)
+			c.JSON(500, gin.H{
+				"message": "Unable to process OpenMetrics data format provided",
+			})
 			return
 		}
 
