@@ -1,10 +1,10 @@
 package main
 
 import (
+	"github.com/gin-gonic/gin"
 	"github.com/sridhargude/levitate/handlers"
 	"github.com/sridhargude/levitate/hll"
 	"github.com/sridhargude/levitate/metrics"
-	"github.com/gin-gonic/gin"
 )
 
 // Index page
@@ -64,7 +64,7 @@ func handleMetrics(c *gin.Context) {
 
 func main() {
 	// Run the Cardinality Metrics
-	hll.HLLChan = make(chan metrics.Data, 0)
+	hll.HLLChan = make(chan metrics.Data, 1000)
 	hll.HLLDone = make(chan bool)
 	// TODO: Configurable time period to emit the Cardinality
 	go handlers.CalculateCardinalityPeriodically(hll.HLLChan, hll.HLLDone)

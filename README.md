@@ -1,16 +1,16 @@
 ## Instructions to Run
 
-Clone the Repo from git: 
+Install the binary using
 
-```git clone https://github.com/sridhargude/levitate.git```
+```go get github.com/sridhargude/levitate.git@latest```
 
 Build the Binary:
 
 ```go build```
 
-Once the binary is built succesfully, run the binary: 
+Once the binary is built successfully, run the binary: 
 
-``` ./web-service-gin ```
+``` levitate ```
 
 It runs on port localhost:8081
 ![img.png](img.png)

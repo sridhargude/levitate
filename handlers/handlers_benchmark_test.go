@@ -2,9 +2,9 @@ package handlers
 
 import (
 	"encoding/json"
+	"fmt"
 	"github.com/sridhargude/levitate/hll"
 	"github.com/sridhargude/levitate/metrics"
-	"fmt"
 	"testing"
 )
 
@@ -65,7 +65,7 @@ func benchmarkProcessJSONData(num int, b *testing.B) {
 
 }
 
-func BenchmarkProcessJSONData1000(b *testing.B) {benchmarkProcessJSONData(1000,b)}
-func BenchmarkProcessJSONData10000(b *testing.B) {benchmarkProcessJSONData(10000,b)}
-func BenchmarkProcessJSONData100000(b *testing.B) {benchmarkProcessJSONData(100000,b)}
-func BenchmarkProcessJSONData10000000(b *testing.B) {benchmarkProcessJSONData(10000000,b)}
+func BenchmarkProcessJSONData1000(b *testing.B)     { benchmarkProcessJSONData(1000, b) }
+func BenchmarkProcessJSONData10000(b *testing.B)    { benchmarkProcessJSONData(10000, b) }
+func BenchmarkProcessJSONData100000(b *testing.B)   { benchmarkProcessJSONData(100000, b) }
+func BenchmarkProcessJSONData10000000(b *testing.B) { benchmarkProcessJSONData(10000000, b) }

@@ -2,20 +2,21 @@ package hll
 
 import (
 	"encoding/json"
-	"github.com/sridhargude/levitate/metrics"
 	h "github.com/mtchavez/go-hll/hll"
+	"github.com/sridhargude/levitate/metrics"
 )
 
 var HLLDone chan bool
 var HLLChan chan metrics.Data
 
 type MetricsHLL struct {
-	hll   *h.Hll
-	Count int64
+	hll          *h.Hll
+	Count        int64
+	TotalMetrics int64
 }
 
 func Init() *MetricsHLL {
-	return &MetricsHLL{hll: h.New(), Count: 0}
+	return &MetricsHLL{hll: h.New(), Count: 0, TotalMetrics: 0}
 }
 
 func (m *MetricsHLL) Add(dict map[string]interface{}) error {
@@ -30,6 +31,7 @@ func (m *MetricsHLL) Add(dict map[string]interface{}) error {
 	m.hll.Add(dictString)
 	// Update the Count
 	m.Count = int64(m.hll.Count())
+	m.TotalMetrics++
 	return nil
 }
 
